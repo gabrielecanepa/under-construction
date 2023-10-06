@@ -49,9 +49,11 @@ body {
 }
 #content .title {
   font-size: 3.2rem;
-  margin-bottom: 3rem;
   position: relative;
-  margin: 0 2rem 3rem;
+  margin: 0 2rem;
+}
+#content .subtitle {
+  margin: 1.15rem 2rem 3.2rem;
 }
 #content .title .cursor {
   position: absolute;
@@ -522,6 +524,8 @@ body {
 @media only screen and (max-width: 768px) {
   #content .title {
     font-size: 3rem;
+  }
+  #content .subtitle {
     margin-bottom: 1.8rem;
   }
   #content .socials {

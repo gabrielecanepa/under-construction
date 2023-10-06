@@ -28,6 +28,7 @@
         <span class="typer" id="title-typer" data-words="Under construction" data-colors="#fff" data-delay="60" data-loop="1"></span>
         <span class="cursor" data-owner="title-typer" data-cursor-display="_"></span>
       </h1>
+      <h3 class="subtitle"></h3>
       <div class="socials">
         <a id="github-icon" class="social-icon" href="https://github.com/gabrielecanepa" target="_blank" title="GitHub">
           <i id="github" class="icomoon-github" style="color: #ffffff"></i>
@@ -95,6 +96,23 @@
           });
         }
       }
+      var titleTyper = document.querySelector('#title-typer');
+      var titleCursor = document.querySelector('.cursor[data-owner="title-typer"]');
+      var subtitle = document.querySelector('.subtitle');
+      var titleInterval = setInterval(function() {
+        if (titleTyper.textContent === titleTyper.dataset.words) {
+          clearInterval(titleInterval);
+          subtitle.innerHTML = `
+            <span class="typer" id="subtitle-typer" data-delim=";" data-words="The website is currently in development, come back soon to check out the new version" data-colors="#fff" data-delay="40" data-loop="1"></span>
+            <span class="cursor" data-owner="subtitle-typer" data-cursor-display="_"></span>
+          `;
+          const subtitleTyper = subtitle.querySelector('#subtitle-typer');
+          const subtitleCursor = subtitle.querySelector('.cursor');
+          titleCursor.style.display = 'none';
+          new Typer(subtitleTyper);
+          new Cursor(subtitleCursor);
+        }
+      }, 200);
       (async () => {
         const keys = await caches.keys();
         for (i = 0; i < keys.length; i++) {
